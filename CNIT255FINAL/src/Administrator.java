@@ -1,5 +1,3 @@
-//sup bitches
-//hkjhk
-public class Administrator {
+public class Administrator extends User {
     
 }
