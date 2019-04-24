@@ -5,6 +5,7 @@ public class User {
     private String username;
     private String password;
     private String screenName;
+    private static  User currentUser;
 
     public User() {
         userId = 0;
@@ -67,6 +68,20 @@ public class User {
      */
     public void setScreenName(String screenName) {
         this.screenName = screenName;
+    }
+
+    /**
+     * @return the currentUser
+     */
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+    /**
+     * @param currentUser the currentUser to set
+     */
+    public static void setCurrentUser(User currentU) {
+        currentUser = currentU;
     }
 
 }
