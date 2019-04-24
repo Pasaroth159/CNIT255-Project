@@ -19,6 +19,12 @@ public class ChatMessage implements Sendable {
         messageContents = mContents;
         timestamp = ts;
     }
+    
+    @Override
+    public String constructMessage(){
+        return (getSenderUserId() + "::"+getTimestamp() + getMessageContents() );
+    
+    }
 
     /**
      * @return the messageId
