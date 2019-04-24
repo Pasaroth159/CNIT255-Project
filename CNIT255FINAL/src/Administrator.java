@@ -1,4 +1,5 @@
 public class Administrator extends User {
+    
     private String adminID;
 
     public Administrator() {
