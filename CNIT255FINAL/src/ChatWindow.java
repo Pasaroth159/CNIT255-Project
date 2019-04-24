@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class ChatWindow extends javax.swing.JFrame {
 
-    private static ArrayList<User> validUsers = new ArrayList<User>();
+    protected static ArrayList<User> validUsers = new ArrayList<User>();
 
     public ChatWindow() {
         initComponents();
@@ -57,6 +57,11 @@ public class ChatWindow extends javax.swing.JFrame {
         });
 
         jButton2.setText("Reset Password");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +130,6 @@ public class ChatWindow extends javax.swing.JFrame {
                     "Invalid Password. Try again.",
                     "Inane error",
                     JOptionPane.ERROR_MESSAGE);
-                    jTextField1.setText("");
                     jPasswordField1.setText("");
                }
             }
@@ -135,6 +139,11 @@ public class ChatWindow extends javax.swing.JFrame {
             new NewUser().setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        new ResetPassword().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

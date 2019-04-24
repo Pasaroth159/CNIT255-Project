@@ -4,20 +4,30 @@ public class ChatMessage implements Sendable {
     private final String messageId;
     private final String senderUserId;
     private final String messageContents;
-    private final Time timestamp;
+    private final String timestamp;
 
     public ChatMessage() {
+        
+        Time currentTime = new Time();
         messageId = "";
         senderUserId = "";
         messageContents = "";
-        timestamp = null;
+        timestamp = currentTime.CurrentDate();
     }
 
-    public ChatMessage(String mId, String sendId, String mContents, Time ts) {
+    public ChatMessage(String mId, String sendId, String mContents) {
+        Time currentTime = new Time();
         messageId = mId;
         senderUserId = sendId;
         messageContents = mContents;
-        timestamp = ts;
+        timestamp = currentTime.CurrentDate();
+        
+    }
+    
+    @Override
+    public String constructMessage(){
+        return (getSenderUserId() + "::"+getTimestamp() + getMessageContents() );
+    
     }
 
     /**
@@ -44,7 +54,7 @@ public class ChatMessage implements Sendable {
     /**
      * @return the timestamp
      */
-    public Time getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
