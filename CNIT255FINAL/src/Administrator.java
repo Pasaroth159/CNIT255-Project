@@ -1,3 +1,3 @@
-//sup bitches
-//hkjhk
-//new branch
+public class Administrator extends User {
+    
+}
