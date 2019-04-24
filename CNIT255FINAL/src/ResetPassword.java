@@ -124,32 +124,41 @@ public class ResetPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        int nameCheck = 0;
+        int passCheck = 0;
+
         for (int i = 0; i < ChatWindow.validUsers.size(); i++) {
             if (ChatWindow.validUsers.get(i).getUsername().equals(jTextField1.getText())) {
+                nameCheck = 1;
                 if (jTextField2.getText().equals(jTextField3.getText())) {
+                    passCheck = 1;
                     ChatWindow.validUsers.get(i).setPassword(jTextField3.getText());
                     this.setVisible(false);
                     new ChatWindow().setVisible(true);
-                } else {
-                    Component frame = null;
-                    JOptionPane.showMessageDialog(frame,
-                            "Passwords do not match.",
-                            "Match Error",
-                            JOptionPane.ERROR_MESSAGE);
-                    jTextField1.setText("");
-                    jTextField2.setText("");
-                    jTextField3.setText("");
                 }
-            } else {
-                Component frame = null;
-                JOptionPane.showMessageDialog(frame,
-                        "User doesn't exist.",
-                        "User Error",
-                        JOptionPane.ERROR_MESSAGE);
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jTextField3.setText("");
             }
+        }
+        if (nameCheck == 0) {
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame,
+                    "User doesn't exist.",
+                    "User Error",
+                    JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            passCheck = 1;
+        }
+        if (passCheck == 0) {
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame,
+                    "Passwords do not match.",
+                    "Match Error",
+                    JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
